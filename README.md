@@ -10,8 +10,8 @@ with the default VirtualBox provider as well as with
 Overview
 --------
 
-My goal was to roughly duplicate the attributes from a
-[DigitalOcean](https://www.digitalocean.com/) Arch Linux droplet:
+My goal is to create a Vagrant image that can be used as a sandbox for testing
+software and configuration.
 
 * 64-bit
 * 20 GB disk
@@ -19,13 +19,12 @@ My goal was to roughly duplicate the attributes from a
 * Only a single /root partition (ext4)
 * No swap
 * Includes the `base` and `base-devel` package groups
+* Includes `yaourt`, an AUR helper tool
 * OpenSSH is also installed and enabled on boot
 
 The installation script follows the
 [official installation guide](https://wiki.archlinux.org/index.php/Installation_Guide)
-pretty closely, with a few tweaks to ensure functionality within a VM. Beyond
-that, the only customizations to the machine are related to the vagrant user
-and the steps recommended for any base box.
+pretty closely, with a few tweaks to ensure functionality within a VM.
 
 Usage
 -----
