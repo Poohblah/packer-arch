@@ -67,6 +67,11 @@ cat <<-EOF > "${TARGET_DIR}${CONFIG_SCRIPT}"
 	/usr/bin/chown vagrant:users /home/vagrant/.ssh/authorized_keys
 	/usr/bin/chmod 0600 /home/vagrant/.ssh/authorized_keys
 
+        # install an AUR helper
+        /usr/bin/pacman -S --noconfirm git
+        /usr/bin/sudo -u vagrant /bin/bash -c 'cd /tmp; git clone https://aur.archlinux.org/package-query.git; cd package-query; makepkg -sri --noconfirm'
+        /usr/bin/sudo -u vagrant /bin/bash -c 'cd /tmp; git clone https://aur.archlinux.org/yaourt.git; cd yaourt; makepkg -sri --noconfirm'
+
 	# clean up
 	/usr/bin/pacman -Rcns --noconfirm gptfdisk
 EOF
